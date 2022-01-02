@@ -19,16 +19,7 @@ jobs:
     plan:
       - get: source-code
       - task: show-cotents
-        config:
-          platform: linux
-          image_resource:
-            type: docker-image
-            source: {repository: ubuntu}
-          inputs:
-            - name: source-code
-          run:
-            path: find
-            args: [.]
+        file: source-code/ci/tasks/show-contents-task.yml
       - task: install-dependencies
         config:
           platform: linux
