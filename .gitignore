@@ -4,4 +4,5 @@
 # Test artefacts
 cypress/screenshots
 cypress/videos
-cypress/reports
+cypress/reports/mocha/*
+cypress/reports/mochareports/*
