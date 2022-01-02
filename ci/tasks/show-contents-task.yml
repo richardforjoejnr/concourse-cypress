@@ -1,3 +1,18 @@
+---
+platform: linux
+image_resource:
+  type: docker-image
+  source: {repository: ubuntu}
+inputs:
+- name: source-code
+  path: input-source-code
+outputs:
+- name: output-folder
+run:
+  path: find
+  args: [.]
+
+# fly -t tictactoe execute -c show-contents-task.yml -i source-code=./source-code
 # takes inputs and outputs 
 # runs in temporary container
 # acts as working directory, can output to different directors
@@ -11,18 +26,3 @@
 #   path: ./input-source-code/script1.sh
 
 
----
-platform: linux
-image_resource:
-  type: docker-image
-  source: {repository: ubuntu}
-inputs:
-- name: source-code
-- path: input-source-code
-outputs:
-- name: output-folder
-run:
-  path: find
-  args: [.]
-
-# fly -t tictactoe execute -c show-contents-task.yml
