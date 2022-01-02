@@ -49,5 +49,22 @@ jobs:
                 cd source-code
                 npm i
       - task: e2e-test
-        file: source-code/ci/tasks/e2e-test-task.yml
+        config: 
+          platform: linux
+          image_resource:
+            type: docker-image
+            source: 
+              repository: cypress/included
+              tag: 9.2.0
+          inputs:
+          - name: source-code
+          outputs:
+          - name: source-code
+          run:
+            path: sh
+            args:
+            - -exec
+            - |
+              cd source-code
+              npm run cy:ci
 # fly -t cypress set-pipeline -c cypress-pipeline.yml -p cypress-pipeline
