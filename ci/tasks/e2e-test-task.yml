@@ -1,20 +1,19 @@
----
+---  
 platform: linux
 image_resource:
   type: docker-image
-  source: 
+  source:
     repository: cypress/included
-    tag: 9.1.1
+    tag: 9.2.0
 inputs:
-- name: source-code
+  - name: source-code
 outputs:
-- name: source-code
+  - name: source-code
 run:
   path: sh
-    args:
-      - -exec
-      - |
-        cd source-code
-        npm run cy:ci:report
-
+  args:
+    - -exec
+    - |
+      cd source-code
+      npm run cy:ci
 # fly -t tictactoe execute -c e2e-test-task.yml
