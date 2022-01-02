@@ -49,5 +49,5 @@ jobs:
                 cd source-code
                 npm i
       - task: e2e-test
-        file: ci/tasks/e2e-test-task.yml
+        file: source-code/ci/tasks/e2e-test-task.yml
 # fly -t cypress set-pipeline -c cypress-pipeline.yml -p cypress-pipeline
