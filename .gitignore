@@ -1,0 +1,7 @@
+# Environment
+.env
+
+# Test artefacts
+cypress/screenshots
+cypress/videos
+cypress/reports

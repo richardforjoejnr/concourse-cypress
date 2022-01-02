@@ -1,0 +1,28 @@
+# takes inputs and outputs 
+# runs in temporary container
+# acts as working directory, can output to different directors
+# Do fundimental work of pipeline
+# platoform: where to run task | image_resource:  which container image to run task | inputs: artifacts available in current directory when the task is run eg CLI paramters, outputs from previous task etc  | outputs: directory available to later steps in build plan
+# resources are only durable stoarage mechanism in a pipeline
+# when you add an input it creates a directory with the input | output exports that directory to make it available to other tasks.
+# tasks outputs are stored on worker filesystem and mounted into containers for subsequent tasks within same job
+# inputs - path: is the name of the folder that gets created for the input. name references the folder name
+# run:
+#   path: ./input-source-code/script1.sh
+
+
+---
+platform: linux
+image_resource:
+  type: docker-image
+  source: {repository: ubuntu}
+inputs:
+- name: source-code
+- path: input-source-code
+outputs:
+- name: output-folder
+run:
+  path: find
+  args: [.]
+
+# fly -t tictactoe execute -c show-contents-task.yml
