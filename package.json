@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/richardforjoe/concourse-cypress#readme",
   "dependencies": {
-    "cypress": "^9.2.0"
+    "cypress": "^8.3.0"
   },
   "devDependencies": {
     "@applitools/eyes-cypress": "^3.23.4",
