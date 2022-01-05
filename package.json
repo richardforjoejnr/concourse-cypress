@@ -4,9 +4,9 @@
   "description": "concourse-ci guide",
   "main": "index.js",
   "scripts": {
-    "cy:ci": "cypress run --headless",
+    "cy:ci": "cypress run --headless --spec 'cypress/integration/functional/**/*'",
     "cy": "cypress open",
-    "cy:ci:visual": "cypress run --headless --spec 'cypress/integration/3-visual-testing/visual-test.spec.js'",
+    "cy:ci:visual": "cypress run --headless --spec 'cypress/integration/visual/**/*'",
     "clean:reports": "rm -R -f cypress/reports && mkdir cypress/reports && mkdir cypress/reports/mochareports",
     "pretest": "npm run clean:reports",
     "scripts": "cypress run",
@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/richardforjoe/concourse-cypress#readme",
   "dependencies": {
-    "cypress": "8.3.0"
+    "cypress": "^9.2.0"
   },
   "devDependencies": {
     "@applitools/eyes-cypress": "^3.23.4",
